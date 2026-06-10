@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harikrishnan ❤️ Gayathri | Ring Engagement Countdown</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#faf7f2;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
+    url('engagement-photo.png') center center/cover no-repeat;
+}
+
+.content{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:1200px;
+}
+
+.ring{
+    font-size:55px;
+    margin-bottom:15px;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+.subtitle{
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-size:14px;
+    margin-bottom:15px;
+    opacity:.9;
+}
+
+h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:5rem;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.and{
+    color:#f6d38f;
+}
+
+.tagline{
+    font-size:20px;
+    margin-bottom:40px;
+    opacity:.95;
+}
+
+.event-details{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-bottom:50px;
+}
+
+.detail-card{
+    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);
+    padding:18px 28px;
+    border-radius:20px;
+}
+
+.detail-title{
+    font-size:12px;
+    letter-spacing:2px;
+    opacity:.8;
+}
+
+.detail-value{
+    margin-top:8px;
+    font-size:17px;
+    font-weight:500;
+}
+
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    max-width:850px;
+    margin:auto;
+}
+
+.time-box{
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:25px;
+    padding:30px 10px;
+}
+
+.time-box h2{
+    font-size:55px;
+    color:#f7d894;
+}
+
+.time-box p{
+    margin-top:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-size:13px;
+}
+
+.footer{
+    margin-top:60px;
+    font-size:18px;
+    opacity:.95;
+}
+
+.footer span{
+    color:#f6d38f;
+}
+
+.stay-connected{
+    margin-top:15px;
+    font-size:15px;
+    letter-spacing:1px;
+}
+
+@media(max-width:768px){
+
+    h1{
+        font-size:3rem;
+    }
+
+    .countdown{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .time-box h2{
+        font-size:40px;
+    }
+
+    .tagline{
+        font-size:16px;
+    }
+}
+
+@media(max-width:480px){
+
+    h1{
+        font-size:2.4rem;
+    }
+
+    .countdown{
+        gap:15px;
+    }
+
+    .time-box{
+        padding:22px 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="content">
+
+<div class="ring">💍</div>
+
+<div class="subtitle">Together Forever Begins Here</div>
+
+<h1>
+Harikrishnan
+<span class="and">&</span>
+Gayathri
+</h1>
+
+<p class="tagline">
+Join us as we celebrate our Ring Engagement
+</p>
+
+<div class="event-details">
+
+<div class="detail-card">
+<div class="detail-title">DATE</div>
+<div class="detail-value">26 November 2026</div>
+</div>
+
+<div class="detail-card">
+<div class="detail-title">LOCATION</div>
+<div class="detail-value">Meenachil Creets, Kummanam</div>
+</div>
+
+</div>
+
+<div class="countdown">
+
+<div class="time-box">
+<h2 id="days">00</h2>
+<p>Days</p>
+</div>
+
+<div class="time-box">
+<h2 id="hours">00</h2>
+<p>Hours</p>
+</div>
+
+<div class="time-box">
+<h2 id="minutes">00</h2>
+<p>Minutes</p>
+</div>
+
+<div class="time-box">
+<h2 id="seconds">00</h2>
+<p>Seconds</p>
+</div>
+
+</div>
+
+<div class="footer">
+With Love ❤️ <span>Harikrishnan & Gayathri</span>
+<div class="stay-connected">
+Stay Connected for More Beautiful Moments & Celebrations
+</div>
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+const engagementDate = new Date("November 26, 2026 09:00:00").getTime();
+
+function updateCountdown(){
+
+const now = new Date().getTime();
+const distance = engagementDate - now;
+
+const days = Math.floor(distance / (1000*60*60*24));
+const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+document.getElementById("days").innerHTML = days;
+document.getElementById("hours").innerHTML = hours;
+document.getElementById("minutes").innerHTML = minutes;
+document.getElementById("seconds").innerHTML = seconds;
+
+if(distance < 0){
+document.querySelector(".countdown").innerHTML =
+"<h2 style='grid-column:1/-1'>💍 The Engagement Day Has Arrived! 💍</h2>";
+}
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+</script>
+
+</body>
+</html>
